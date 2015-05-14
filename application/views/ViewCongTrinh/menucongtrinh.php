@@ -14,14 +14,13 @@
           
                  <li role="presentation" class="dropdown">
                     <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-expanded="false">
-                      Sản Phẩm <span class="caret"></span>
+                      Công trình <span class="caret"></span>
                     </a>
                     <ul class="dropdown-menu" role="menu">
-                        <?php if(isset($mlloasanpham)){
-                        foreach($mlloasanpham as $mllsp){
-                            $mlloaicha= $mllsp[0];
+                        <?php if(isset($menudsct)){
+                        foreach($menudsct as $ct){
                         ?>
-                            <li><a href="<?php echo base_url('san-pham/'.$mlloaicha['tenloaiurl'].'-'.$mlloaicha['maloai']) ?>"><?php echo $mlloaicha['tenloai'] ?></a></li>
+                            <li><a href=""><?php echo $ct['ten_cong_trinh'] ?></a></li>
                         <?php
                          }
                         } 

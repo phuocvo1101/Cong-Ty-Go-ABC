@@ -1,7 +1,7 @@
 
 <div class="panel panel-default">
       <!-- Default panel contents -->
-      <div class="panel-heading">Panel heading</div>
+      <div class="panel-heading"><?php echo $title_ds; ?></div>
       <div class="panel-body">
         <p><?php echo anchor('quan-tri/san-pham/them','Thêm Sản Phẩm'); ?></p>
       </div>
@@ -46,12 +46,16 @@
             }
         }
         ?>
-        <tr align="center" class="col-sm-8">
-            <ul class="pagination">
-                <?php echo $link; ?>
-            </ul>
-        </tr>
-         
+        
+         <tr>
+            <td align="center" colspan="8">
+                <ul class="pagination">
+                    <?php echo $link; ?>
+                </ul>
+            </td>                
+         </tr>
         </tbody>
+            
+        
       </table>
     </div>

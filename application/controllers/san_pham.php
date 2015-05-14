@@ -9,8 +9,6 @@ class san_pham extends MY_Controller
     }
     public function index()
     {
-        //$ds= $this->msp->sp_phantrang(2,1);
-        //var_dump($ds);die();
         $loai_sp= $this->mlsp->ds_loai_cha();
         $this->data['loaisp']=$loai_sp;
         $this->data['path']=array('Viewsanpham/menusanpham');
@@ -19,7 +17,6 @@ class san_pham extends MY_Controller
     public function danh_sach()
     {
         
-       
            //phantrang
         $this->load->library('pagination');
 
@@ -63,10 +60,8 @@ class san_pham extends MY_Controller
          $this->data['danhsachsanpham']= $danhsachsp;
         $title_ds ='<li class="active">Danh sách sản phẩm</li>';
         $this->data['title_ds']= $title_ds;
-         $this->data['title_bar']='Quan ly nguoi dung';
-        $this->data['mlloasanpham']=$this->mlsp->ds_loai_cha();
-        
-      
+         $this->data['title_bar']='Quản lý người dùng';
+        $this->data['mlloasanpham']=$this->mlsp->ds_loai_cha();      
         
         $this->data['path']=array('Viewsanpham/docdanhsachsanpham');
         $this->load->view('Viewsanpham/layoutsanpham',$this->data);
@@ -166,7 +161,7 @@ class san_pham extends MY_Controller
         
          $danhsachsp= $this->msp->sp_phantrang( $config['per_page'],$start);
          $data['danhsachsanpham']= $danhsachsp;
-        $title_ds ='<li class="active">Danh sách sản phẩm</li>';
+        $title_ds ='Danh sách sản phẩm';
         $data['title_ds']= $title_ds;
          $data['title_bar']='Quan ly nguoi dung';
          

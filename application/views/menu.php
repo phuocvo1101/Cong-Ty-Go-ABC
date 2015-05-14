@@ -15,8 +15,10 @@
             <div id="navbar" class="navbar-collapse collapse" >
               <ul class="nav navbar-nav">
                 <li class="active"><a href="<?php echo site_url('san-pham') ?>">Sản Phẩm</a></li>
-                 <li class="active"><a href="<?php echo site_url('san-pham') ?>">Tin Tức</a></li>
-                  <li class="active"><a href="<?php echo site_url('san-pham') ?>">Liên Hệ</a></li>
+                <li class="active"><a href="<?php echo site_url('tin-tuc') ?>">Tin Tức</a></li>
+                <li class="active"><a href="<?php echo site_url('cong-trinh') ?>">Công Trình</a></li>
+                <li class="active"><a href="<?php echo site_url('gioi-thieu') ?>">Giới Thiệu</a></li>
+                <li class="active"><a href="<?php echo site_url('lien-he') ?>">Liên Hệ</a></li>
                 <li class="dropdown">
                   <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Dropdown <span class="caret"></span></a>
                   <ul class="dropdown-menu" role="menu">
