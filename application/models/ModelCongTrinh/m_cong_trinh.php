@@ -5,6 +5,14 @@
         {
             parent::__construct();
         }
+        public function dsct()
+        {
+            $query=$this->db->get('cong_trinh');
+            if($query->num_rows()==0){
+                return false;
+            }
+            return $query->result_array();
+        }
         public function ds_cong_trinh($limit,$start)
         {
             $query=$this->db->get('cong_trinh',$limit,$start);
@@ -12,6 +20,10 @@
                 return false;
             }
             return $query->result_array();
+        }
+        public function tongsocongtrinh()
+        {
+            return $this->db->count_all('cong_trinh');
         }
         public function ds_cong_trinh_moi($limit,$start)
         {

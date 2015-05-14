@@ -5,8 +5,7 @@
     $tamp = 'in';
     foreach($mlloasanpham as $mllsp){
         $mlloaicha= $mllsp[0];
-        $mldsloaicon = $mllsp[1];
-    
+        $mldsloaicon = $mllsp[1];   
     ?>
     <div class="panel panel-default">
     <div class="panel-heading" role="tab" id="heading<?php echo $i; ?>">
