@@ -19,7 +19,8 @@
       <div class="caption">
       <p align="center"><?php echo $dssp['tensanpham'] ?></p>
         <h4 align="center">Giá :<?php echo number_format($dssp['dongia']).' vnd'   ?></h4>
-        <p><a href="#" class="btn btn-primary" role="button">Button</a> <a href="#" class="btn btn-default" role="button">Button</a></p>
+        <p><a href="<?php echo site_url('chi-tiet-san-pham/'.$dssp['tensanphamurl'].'-'.$dssp['masanpham']) ?>" class="btn btn-primary" role="button">Chi Tiết</a> 
+        </p>
       </div>
     </div>
   </div>
@@ -31,7 +32,11 @@
 } ?>
 <div align="center" class="col-sm-12">
 <ul class="pagination">
-<?php echo $link; ?>
+<?php
+if(isset($link)){
+     echo $link;
+}
+ ?>
 </ul>
 </div>
   

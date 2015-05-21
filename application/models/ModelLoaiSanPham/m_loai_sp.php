@@ -30,5 +30,17 @@ class M_loai_sp extends CI_Model
         }
         return $result->row_array();
     }
+    
+    public function lay_lsp_select()
+    {
+        $result=$this->db->get('loai_san_pham');
+        $mang= array();
+        if($result->num_rows()>0){
+            foreach($result->result_array() as $item){
+                $mang[$item['maloai']] = $item['tenloai'];
+            }
+        }
+        return $mang;
+    }
 }
 ?>

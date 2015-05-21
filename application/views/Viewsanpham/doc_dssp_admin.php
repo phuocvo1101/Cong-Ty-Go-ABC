@@ -35,9 +35,9 @@
                     <td><?php echo $dssp['sanphammoi']; ?></td>
                     
                     <td>
-                    <?php  echo anchor('quan-tri/nguoi-dung/cap-nhat/'.$dssp['masanpham'],'Cap Nhap','class= "btn btn-primary"');
+                    <?php  echo anchor('quan-tri/san-pham/cap-nhat/'.$dssp['masanpham'],'Cap Nhap','class= "btn btn-primary"');
                     echo ' | ';
-                    echo anchor('quan-tri/nguoi-dung/xoa/'.$dssp['masanpham'],'Xoa','class= "btn btn-info"'); ?>
+                    echo anchor('quan-tri/san-pham/xoa/'.$dssp['masanpham'],'Xoa','class= "btn btn-info"'); ?>
                     </td>
                     
                 </tr>

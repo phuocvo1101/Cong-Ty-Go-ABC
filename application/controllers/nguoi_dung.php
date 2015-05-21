@@ -31,7 +31,7 @@ class nguoi_dung extends CI_Controller
     }
     public function cap_nhat()
     {
-        $id= $this->uri->segment(3);
+        $id= $this->uri->segment(4);
         if(!$id){
             redirect('nguoi-dung');
         }

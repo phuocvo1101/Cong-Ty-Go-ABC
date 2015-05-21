@@ -2,7 +2,12 @@
 <?php $this->load->helper('form')?>
 <h2>Thông tin sản phẩm</h2>
 <?php
-echo form_open_multipart('quan-tri/san-pham/them-san-pham','class="form-horizontal" role="form"')
+if(isset($err)){
+    echo $err;
+}
+ ?>
+<?php
+echo form_open_multipart('quan-tri/san-pham/them','class="form-horizontal" role="form"')
 ?>
     <div class="form-group">
       <label class="control-label col-sm-2" for="masanpham">Mã sản phẩm:</label>
@@ -21,6 +26,7 @@ echo form_open_multipart('quan-tri/san-pham/them-san-pham','class="form-horizont
             'value'=>set_value('tensanpham',''),
             'placeholder'=>'Tên sản phẩm'
         );
+        echo form_error('tensanpham');
         echo form_input($data);
         ?>
       </div>
@@ -34,6 +40,7 @@ echo form_open_multipart('quan-tri/san-pham/them-san-pham','class="form-horizont
             'value'=>set_value('tensanphamurl',''),
             'placeholder'=>'Tên URL'
         );
+        echo form_error('tensanphamurl');
         echo form_input($data);
         ?>
       </div>
@@ -49,6 +56,7 @@ echo form_open_multipart('quan-tri/san-pham/them-san-pham','class="form-horizont
             'value'=>set_value('dongia',''),
             'placeholder'=>'Đơn giá'
         );
+        echo form_error('dongia');
         echo form_input($data);
         ?>
       </div>
@@ -65,16 +73,10 @@ echo form_open_multipart('quan-tri/san-pham/them-san-pham','class="form-horizont
       </div>
     </div>
     <div class="form-group">
-      <label class="control-label col-sm-2" for="maloaicha">Mã loại cha:</label>
-      <div class="col-sm-4">          
-        <?php        
-            echo form_dropdown('maloaicha');
-        ?>
-      </div>
       <label class="control-label col-sm-2" for="maloai">Loại:</label>
       <div class="col-sm-4">          
         <?php       
-            echo form_dropdown('maloai');
+            echo form_dropdown('maloai',$lspselect,array('class'=>'form-control') );
         ?>
       </div>
     </div>
