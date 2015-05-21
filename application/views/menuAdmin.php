@@ -30,6 +30,21 @@
                   </ul>
                 </li>
               </ul>
+              
+              <ul class="nav navbar-nav navbar-right">
+              <?php if($this->session->has_userdata('nguoi_dung')){
+                ?>
+                    <li><a href="#" onclick="return false"><span class="glyphicon glyphicon-user"></span> <?php echo $this->session->userdata('nguoi_dung') ?></a></li>
+                    <li><a href="<?php echo site_url('quan-tri/dang-xuat') ?>"><span class="glyphicon glyphicon-log-out"></span> Đăng Xuất</a></li>
+                <?php
+                
+              }else{
+                ?>
+                <li><a href="<?php echo site_url('quan-tri/dang-nhap') ?>"><span class="glyphicon glyphicon-log-in"></span> Đăng Nhập</a></li>
+                <?php
+              } ?>
+                   
+              </ul>
             </div>
           </div>
         </nav>

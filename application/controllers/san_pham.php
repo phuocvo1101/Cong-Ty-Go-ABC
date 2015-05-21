@@ -83,7 +83,6 @@ class san_pham extends MY_Controller
            $this->data['mlloasanpham']=$this->mlsp->ds_loai_cha();
          $danhsachsp= $this->msp->sp_theo_loai_cha($id);
         $this->data['danhsachsanpham']= $danhsachsp;
-        
         $this->data['path']=array('Viewsanpham/docdanhsachsanpham');
         $this->load->view('Viewsanpham/layoutsanpham',$this->data);
 
@@ -116,6 +115,24 @@ class san_pham extends MY_Controller
       $id= $this->uri->segment(3);
       $data['masp']=$id;
       $this->load->view('Viewsanpham/chitiet',$data);
+    }
+    public function chitietsanpham()
+    {
+        $chuoi= $this->uri->segment(2);
+        $mang= explode('-',$chuoi);
+        $id= $mang[count($mang)-1];
+        $sanpham= $this->msp->sp_id($id);
+        if(!$sanpham){
+            redirect('san-pham');
+        }
+        $dsspcungloai= $this->msp->sp_cung_loai($id,$sanpham['maloai']);
+          $this->data['danhsachsanpham']= $dsspcungloai;
+         $this->data['sanpham']=$sanpham;
+          $this->data['title_ds']= 'san pham cung loai';
+          $this->data['mlloasanpham']=$this->mlsp->ds_loai_cha();
+        $this->data['path']= array('Viewsanpham/chitiet','Viewsanpham/docdanhsachsanpham');
+        $this->load->view('Viewsanpham/layoutsanpham',$this->data);
+        
     }
     
     public function danh_sach_admin()
@@ -172,6 +189,66 @@ class san_pham extends MY_Controller
     }
     public function them_san_pham()
     {
+        if($this->input->post('submit') != ''){
+            $this->load->library('form_validation');
+           $config = array(
+                array('field' => 'tensanpham','label' => 'Tên Sản Phẩm','rules' => 'required'),
+                array('field' => 'tensanphamurl','label' => 'Tên URL','rules' => 'required'),
+                array('field' => 'dongia','label' => 'Đơn Giá','rules' => 'required|numeric'),
+       
+            );
+            $this->form_validation->set_message('required','<span style="color:red">%s phải nhập dữ liệu</span>');
+            $this->form_validation->set_message('numeric','<span style="color:red">%s phải là số</span>');
+            $this->form_validation->set_rules($config);
+            if($this->form_validation->run()){
+                //thuc hien upload file
+                $config['upload_path']          = './public/hinhsanphamnho/';
+                $config['allowed_types']        = 'gif|jpg|png';
+                $config['max_size']             = 2000000;
+                $config['max_width']            = 1024;
+                $config['max_height']           = 768;
+                $config['encrypt_name']         = TRUE;
+
+                $this->load->library('upload', $config);
+
+                if ( ! $this->upload->do_upload('hinh'))
+                {
+                       $data['err']=$this->upload->display_errors();
+                }
+                else
+                {
+                   //lay file name (do ma hoa encrypt_name))
+                        $data =$this->upload->data();
+                        $file_name = $data['file_name'];
+                        //watermaking
+                        
+                        $config1['image_library'] = 'gd2';
+                        $config1['source_image'] = './public/hinhsanphamnho/'.$file_name;
+                        $config1['wm_text'] = 'Copyright 2006 - John Doe';
+                        $config1['wm_type'] = 'text';
+                        $config1['wm_font_path'] = './public/fonts/arial.ttf';
+                        $config1['wm_font_size'] = '16';
+                        $config1['wm_font_color'] = 'ffffff';
+                        $config1['wm_vrt_alignment'] = 'bottom';
+                        $config1['wm_hor_alignment'] = 'center';
+                        
+                        $this->load->library('image_lib', $config1);
+                        $this->image_lib->watermark();
+                        $this->image_lib->clear();
+                        //thuc hien luu
+                        $data = $this->input->post(null);
+                        $data['hinh']= $file_name;
+                        $this->load->model('ModelSanPham/m_sanpham');
+                        $this->m_sanpham->setData($data);
+                        $kq= $this->msp->them_sp($this->m_sanpham->getData());
+                        if($kq){
+                            redirect('quan-tri/san-pham');
+                        }
+                }
+            }
+        }
+        $loaisanpham= $this->mlsp->lay_lsp_select();
+        $data['lspselect']= $loaisanpham;
          $data['path']=array('Viewsanpham/themsanpham');
         $this->load->view('layoutAdmin',$data);
     }

@@ -9,6 +9,15 @@
             }
             return false;
         }
+        public function nguoi_dung_dang_nhap($tendn,$matkhau)
+        {
+            $this->db->where(array('tendn'=>$tendn,'mat_khau'=>$matkhau));
+            $query=$this->db->get('nguoi_dung');
+            if($query->num_rows()>0){
+                return $query->row_array();
+            }
+            return false;
+        }
         public function nguoi_dung_id($id)
         {
             $query= $this->db->query('select * from nguoi_dung Where ma_nguoi_dung =?',array($id));

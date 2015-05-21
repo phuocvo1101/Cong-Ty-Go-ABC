@@ -27,7 +27,7 @@ class M_san_pham extends CI_Model
         $this->db->where(array('masanpham'=>$id));
          $query=$this->db->get('san_pham');
         if($query->num_rows()>0){
-            return $query->result_array();
+            return $query->row_array();
         }
         return false;
     }
@@ -49,15 +49,34 @@ class M_san_pham extends CI_Model
         }
         return false;
     }
+    //danh sach san pham loai cha
     public function sp_theo_loai_cha($maloaicha)
     {
-         $this->db->where(array('maloaicha'=>$maloaicha));
+         $this->db->where_in('maloai', $this->lay_loai_con($maloaicha));
          $query=$this->db->get('san_pham');
         if($query->num_rows()>0){
             return $query->result_array();
         }
         return false;
     }
+    public function lay_loai_con($loai_cha)
+    {
+        $this->db->where(array('maloaicha'=>$loai_cha));
+        $this->db->select('maloai');
+        $result=$this->db->get('loai_san_pham');
+        $mang = array();
+        if($result->num_rows()>0){
+            foreach($result->result_array() as $item){
+                $mang[]= $item['maloai'];
+            }
+        }else{
+            $mang[]=0;
+        }
+        
+        return $mang;
+        
+    }
+    //end danh sach san pham loai cha
     public function sp_cung_loai($id,$ma_loai)
     {
         $this->db->where(array('maloai'=>$ma_loai,'masanpham !='=>$id));

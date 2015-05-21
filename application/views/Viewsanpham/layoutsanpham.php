@@ -28,13 +28,13 @@
 
     <div class="container-fluid">
       <div class="row">
-        <div class="col-sm-3 col-md-2 sidebar">
+        <div class="col-sm-4 col-md-2 sidebar">
         <ul class="nav nav-sidebar">
             <li class="active"><a href="#">Danh mục sản phẩm <span class="sr-only">(current)</span></a></li>
         </ul>
           <?php $this->load->view('Viewsanpham/menuLeft'); ?>
         </div>
-        <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+        <div class="col-sm-8 col-sm-offset-3 col-md-10 col-md-offset-2 main">
            <?php
             if(isset($path)){
                 foreach($path as $path_view){
@@ -55,5 +55,25 @@
     <script src="<?php echo base_url(''); ?>public/css_js/js/vendor/holder.js"></script>
     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
     <script src="<?php echo base_url(''); ?>public/css_js/js/ie10-viewport-bug-workaround.js"></script>
+    <script>
+        $(document).ready(function(){
+            $(".mua").click(function(){
+                var ttmh =$(this).attr('id');
+                var slmua = $("#txtMua").val();
+                $.ajax({
+                    url: "<?php echo site_url('gio_hang/them') ?>",
+                    type: 'POST',
+                    data:{
+                        tt:ttmh,
+                        sl:slmua
+                    },
+                    dataType:'json',
+                     success: function(data){
+                    alert('ok');
+                }});
+                
+            });
+        });
+    </script>
   </body>
 </html>

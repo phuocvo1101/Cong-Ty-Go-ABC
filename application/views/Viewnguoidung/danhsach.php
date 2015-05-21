@@ -41,7 +41,7 @@
             <td></td>
             <td>
             <?php
-                echo anchor('nguoi-dung/cap-nhat/'.$ds['ma_nguoi_dung'],'Cap Nhap','class= "btn btn-primary"');
+                echo anchor('quan-tri/nguoi-dung/cap-nhat/'.$ds['ma_nguoi_dung'],'Cap Nhap','class= "btn btn-primary"');
                 echo ' | ';
                  echo anchor('quan-tri/nguoi-dung/xoa/'.$ds['ma_nguoi_dung'],'Xoa','class= "btn btn-info"');
             ?>

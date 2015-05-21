@@ -55,6 +55,7 @@ $route['san-pham/danh-sach'] = 'san_pham/danh_sach';
 $route['san-pham/(:num)'] = 'san_pham/danh_sach';
 $route['san-pham/chi-tiet-san-pham/[0-9a-zA-Z_-]+'] = 'san_pham/chi_tiet_san_pham';
 $route['san-pham/[0-9a-zA-Z_-]+'] = 'san_pham/loaisanphamcha';
+$route['chi-tiet-san-pham/[0-9a-zA-Z_-]+'] = 'san_pham/chitietsanpham';
 $route['san-pham/[0-9a-zA-Z_-]+/[0-9a-zA-Z_-]+'] = 'san_pham/loaisanpham';
 $route['san-pham'] = 'san_pham/danh_sach';
 
@@ -64,6 +65,8 @@ $route['cong-trinh']= 'cong_trinh/danhsachcongtrinh';
 $route['cong-trinh/[0-9a-zA-Z_-]+']= 'cong_trinh/danhsachcongtrinh';
 
 $route['quan-tri'] = 'quan_tri';
+$route['quan-tri/dang-nhap'] = 'quan_tri/dang_nhap';
+$route['quan-tri/dang-xuat'] = 'quan_tri/dang_xuat';
 $route['quan-tri/san-pham'] = 'san_pham/danh_sach_admin';
 $route['quan-tri/san-pham/(:num)'] = 'san_pham/danh_sach_admin';
 
