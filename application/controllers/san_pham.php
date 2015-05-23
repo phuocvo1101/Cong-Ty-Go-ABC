@@ -5,7 +5,7 @@ class san_pham extends MY_Controller
     {
         parent::__construct();
         $this->load->model('ModelSanPham/m_san_pham','msp');
-        $this->load->model('ModelLoaiSanPham/m_loai_sp','mlsp');
+        
     }
     public function index()
     {
