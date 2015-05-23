@@ -8,7 +8,7 @@
             <h3>Đơn giá: <?php echo number_format($sanpham['dongia']).'VND' ?></h3>
             <h3>
                 <input type="number" name="txtMua" id="txtMua" value="1" style="text-align: center;" size="10px"  />
-                <button class="btn btn-danger mua" id="search-results<?php echo $sanpham['masanpham'].'dssp'.$sanpham['dongia']; ?>">Mua</button>
+                <button class="btn btn-danger mua" id="<?php echo $sanpham['masanpham'].'dssp'.$sanpham['dongia']; ?>">Thêm Giỏ Hàng</button>
             </h3>
        </div>
 </div>
