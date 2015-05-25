@@ -28,7 +28,7 @@
 
     <div class="container-fluid">
       <div class="row">
-        <div class="col-sm-4 col-md-2 sidebar">
+        <div class="col-sm-4 col-md-3 sidebar">
         <ul class="nav nav-sidebar">
             <li class="active"><a href="#">Giỏ Hàng<span class="sr-only">(current)</span></a></li>
             <li>
@@ -48,7 +48,7 @@
         </ul>
           <?php $this->load->view('Viewsanpham/menuLeft'); ?>
         </div>
-        <div class="col-sm-8 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+        <div class="col-sm-8 col-sm-offset-4 col-md-9 col-md-offset-3 main" id="dvMain">
            <?php
             if(isset($path)){
                 foreach($path as $path_view){
@@ -89,6 +89,17 @@
                      success: function(data){
                     $('#ttgh').html('SL: ' + data['tsl'] + '- TT:' + formatCurrency(data['tt']) + 'vnđ' );
                 }});
+                
+            });
+            
+            $("#txtTim").change(function(){
+                var gt = $("#txtTim").val();
+                if(gt.length>0){
+                    alert(gt);
+                }
+               
+               
+                
                 
             });
         });

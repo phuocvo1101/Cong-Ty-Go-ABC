@@ -8,7 +8,7 @@
         <table class="table">
         <thead>
           <tr>
-            <td>#</td>
+            <td>STT</td>
             <td>Mã Sản Phẩm</td>
             <td>Tên Sản Phẩm</td>
             <td align="right">Đơn Giá</td>

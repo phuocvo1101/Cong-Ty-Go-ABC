@@ -81,6 +81,7 @@ $route['quan-tri/nguoi-dung/thuc-hien-xoa/(:num)'] = 'nguoi_dung/thuc_hien_xoa';
 $route['gio-hang/thong-tin-gio-hang'] = 'gio_hang/thongtingiohang';
 $route['gio-hang/xoa-gio-hang'] = 'gio_hang/xoa_gio_hang';
 $route['khach-hang/dat-hang'] = 'khach_hang/dat_hang';
+$route['khach-hang/thong-tin-don-dat-hang/(:num)'] = 'khach_hang/thong_tin_don_dat_hang';
 
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
