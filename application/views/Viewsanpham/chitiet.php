@@ -1,7 +1,7 @@
 
-    <div class="row">
+<div class="row">
        <div class="col-md-4 thumbnail">
-        <img src="<?php echo base_url('public/hinhsanphamnho').'/'.$sanpham['hinh'] ?>" />
+        <img src="<?php echo base_url('public/hinhsanphamlon').'/'.$sanpham['hinh'] ?>" />
     </div>
        <div class="col-md-6">
             <h2>Mã <?php echo $sanpham['masanpham'] ?> - <?php echo $sanpham['tensanpham'] ?></h2>

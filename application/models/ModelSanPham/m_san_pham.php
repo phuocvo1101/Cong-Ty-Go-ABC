@@ -13,6 +13,15 @@ class M_san_pham extends CI_Model
         }
         return false;
     }
+    public function dssp_tim_kiem($search)
+    {
+        $this->db->like('tensanpham',$search);
+        $query=$this->db->get('san_pham');
+        if($query->num_rows()>0){
+            return $query->result_array();
+        }
+        return false;
+    }
     public function sp_phantrang($limit,$start)
     {
         
