@@ -30,7 +30,7 @@
                     $makh=$this->m_khach_hang->them_khach_hang($this->m_kh->getData());
                     //them hoa don
                     $data_hoadon= array(
-                        'ngay_hoadon'=>date('Y-m-d'),'ma_kh'=>$makh, 'trigia_hd'=>$this->cart->total()
+                        'ngay_hoadon'=>gmDate('Y-m-d'),'ma_kh'=>$makh, 'trigia_hd'=>$this->cart->total()
                     );
                      $so_hoadon=$this->m_khach_hang->them_hoa_don($data_hoadon);
                      //them chi tiet hoa don

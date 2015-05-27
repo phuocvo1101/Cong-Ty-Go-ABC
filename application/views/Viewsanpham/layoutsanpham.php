@@ -95,10 +95,25 @@
             $("#txtTim").change(function(){
                 var gt = $("#txtTim").val();
                 if(gt.length>0){
-                    alert(gt);
-                }
-               
-               
+                    $.ajax({
+                    url: "<?php echo site_url('san_pham/tim_kiem') ?>",
+                    type: 'POST',
+                    data:{
+                        tim:gt
+                    },
+                    dataType:'json',
+                     success: function(data){
+                     var kq= data['gt'];
+                     if(kq==0){
+                        alert('không có sản phẩm nào');
+                     }else{
+                        $("#dvMain").html(kq);
+                     }
+                     
+                     
+                     
+                }});
+                }            
                 
                 
             });

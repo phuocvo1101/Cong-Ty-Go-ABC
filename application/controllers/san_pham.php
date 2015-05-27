@@ -14,6 +14,31 @@ class san_pham extends MY_Controller
         $this->data['path']=array('Viewsanpham/menusanpham');
        $this->load->view('layout',$this->data);
     }
+    public function tim_kiem()
+    {
+        $gttim= $this->input->post('tim');
+        $dssp= $this->msp->dssp_tim_kiem($gttim);
+        $chuoi='';
+        if(!$dssp){
+            $chuoi= 0;
+        }else{
+            foreach($dssp as $sp)
+            {
+
+              $chuoi.='<div class="col-xs-6 col-md-3">
+                <div class="thumbnail">';
+              $chuoi.='<img src="'.base_url('public/hinhsanphamlon/'.$sp['hinh']).'" alt="'.$sp['tensanpham'].'">
+                  <div class="caption">';
+              $chuoi.='<p align="center" style="height: 30px;">'.$sp['tensanpham'].'</p>';
+              $chuoi.='<h4 align="center">Giá : '. number_format($sp['dongia']).'vnđ</h4>';
+              $chuoi.='<p><a href="'.site_url('chi-tiet-san-pham/'.$sp['tensanphamurl'].'-'.$sp['masanpham']).'" class="btn btn-primary" role="button">Chi tiết</a></p>';
+              $chuoi.='</div>
+                </div>
+              </div>';
+            }
+        }
+        echo json_encode(array('gt'=>$chuoi));
+    }
     public function danh_sach()
     {
         
@@ -180,7 +205,7 @@ class san_pham extends MY_Controller
          $data['danhsachsanpham']= $danhsachsp;
         $title_ds ='Danh sách sản phẩm';
         $data['title_ds']= $title_ds;
-         $data['title_bar']='Quan ly nguoi dung';
+         $data['title_bar']='Quan ly san pham';
          
         
         $data['path']=array('Viewsanpham/doc_dssp_admin');
@@ -202,7 +227,7 @@ class san_pham extends MY_Controller
             $this->form_validation->set_rules($config);
             if($this->form_validation->run()){
                 //thuc hien upload file
-                $config['upload_path']          = './public/hinhsanphamnho/';
+                $config['upload_path']          = './public/hinhsanphamlon/';
                 $config['allowed_types']        = 'gif|jpg|png';
                 $config['max_size']             = 2000000;
                 $config['max_width']            = 1024;
@@ -223,7 +248,7 @@ class san_pham extends MY_Controller
                         //watermaking
                         
                         $config1['image_library'] = 'gd2';
-                        $config1['source_image'] = './public/hinhsanphamnho/'.$file_name;
+                        $config1['source_image'] = './public/hinhsanphamlon/'.$file_name;
                         $config1['wm_text'] = 'Copyright 2006 - John Doe';
                         $config1['wm_type'] = 'text';
                         $config1['wm_font_path'] = './public/fonts/arial.ttf';
