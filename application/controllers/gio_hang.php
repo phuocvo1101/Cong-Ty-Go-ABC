@@ -46,11 +46,11 @@
             if($this->cart->contents()){
                 $this->data['giohang']=$this->cart->contents();
             }
-         $this->data['title_bar']='Thông Tin Gi? Hàng';
-        $this->data['mlloasanpham']=$this->mlsp->ds_loai_cha();      
+            $this->data['title_bar']='ThÃ´ng Tin Giá» HÃ ng';
+            $this->data['mlloasanpham']=$this->mlsp->ds_loai_cha();      
         
-        $this->data['path']=array('Viewgiohang/danhsachgiohang');
-        $this->load->view('Viewsanpham/layoutsanpham',$this->data);
+            $this->data['path']=array('Viewgiohang/danhsachgiohang');
+            $this->load->view('Viewsanpham/layoutsanpham',$this->data);
         }
        
         public function xoa_gio_hang()
