@@ -50,10 +50,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 |		my-controller/my-method	-> my_controller/my_method
 */
 $route['default_controller'] = 'Welcome';
-$route['san-pham'] = 'san_pham';
+//$route['san-pham'] = 'san_pham';
 $route['san-pham/danh-sach'] = 'san_pham/danh_sach';
 $route['san-pham/(:num)'] = 'san_pham/danh_sach';
-$route['san-pham/chi-tiet-san-pham/[0-9a-zA-Z_-]+'] = 'san_pham/chi_tiet_san_pham';
+//$route['san-pham/chi-tiet-san-pham/[0-9a-zA-Z_-]+'] = 'san_pham/chi_tiet_san_pham';
 $route['san-pham/[0-9a-zA-Z_-]+'] = 'san_pham/loaisanphamcha';
 $route['chi-tiet-san-pham/[0-9a-zA-Z_-]+'] = 'san_pham/chitietsanpham';
 $route['san-pham/[0-9a-zA-Z_-]+/[0-9a-zA-Z_-]+'] = 'san_pham/loaisanpham';

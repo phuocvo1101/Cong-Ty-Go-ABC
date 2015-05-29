@@ -126,7 +126,7 @@ class san_pham extends MY_Controller
         
 
         $this->data['title_ds']= $title_ds;
-         $this->data['title_bar']='Quan Ly Nguoi Dung';
+         $this->data['title_bar']='Quan Ly San Pham';
            $this->data['mlloasanpham']=$this->mlsp->ds_loai_cha();
          $danhsachsp= $this->msp->sp_theo_loai($id);
         $this->data['danhsachsanpham']= $danhsachsp;
@@ -135,12 +135,12 @@ class san_pham extends MY_Controller
         $this->load->view('Viewsanpham/layoutsanpham',$this->data);
     }
     
-    public function chi_tiet_san_pham()
+   /* public function chi_tiet_san_pham()
     {
       $id= $this->uri->segment(3);
       $data['masp']=$id;
       $this->load->view('Viewsanpham/chitiet',$data);
-    }
+    }*/
     public function chitietsanpham()
     {
         $chuoi= $this->uri->segment(2);

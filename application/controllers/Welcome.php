@@ -7,7 +7,11 @@ class Welcome extends MY_Controller {
 	public function index()
 	{
 	   //$this->data['name'] = 'abc';
-	   $this->data['path']=array('welcome_message');
+        
+         $dssp_moi= $this->m_san_pham->sp_moi();
+         $this->data['title_ds']= 'Danh Sách Sản Phẩm Mới';
+         $this->data['danhsachsanpham']= $dssp_moi;
+        $this->data['path']=array('welcome_message','Viewsanpham/docdanhsachsanpham');
 		$this->load->view('layout',$this->data);
 	}
 }
